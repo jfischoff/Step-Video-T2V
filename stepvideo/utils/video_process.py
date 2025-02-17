@@ -43,8 +43,11 @@ class VideoProcessor:
         video_tensor = torch.cat([t for t in video_tensor], dim=-2)
         video_array = video_tensor.clamp(0, 255).to(torch.uint8).numpy().transpose(0,2,3,1)
         
+        print("before crop video_array shape", video_array.shape)
+        
         if crop2standard540p:
             video_array = self.crop2standard540p(video_array)
 
+        print("video_array shape", video_array.shape)
         self.save_imageio_video(video_array, video_path)
         print(f"Saved the generated video in {video_path}")
