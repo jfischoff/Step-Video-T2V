@@ -15,7 +15,7 @@ from stepvideo.diffusion.scheduler import FlowMatchDiscreteScheduler
 from stepvideo.utils import VideoProcessor
 
 
-def call_api_gen(url, api, port=8080):
+def call_api_gen(url, api, port=8081):
     url =f"http://{url}:{port}/{api}-api"
     import aiohttp
     async def _fn(samples, *args, **kwargs):
